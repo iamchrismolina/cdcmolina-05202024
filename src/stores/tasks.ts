@@ -17,7 +17,7 @@ const useTasksStore = defineStore('tasks', () => {
 		tasks.value.push(newTask)
 	}
 
-
+	createTask({name: 'Vue 3', description: 'Study hard on Full Stack', status: 'DONE'})
 
 	return { tasks, createTask }
 
