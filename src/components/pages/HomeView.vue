@@ -5,6 +5,7 @@ import VButton from '@/components/atoms/VButton.vue'
 import VInput from '@/components/atoms/VInput.vue'
 import VText from '@/components/atoms/VText.vue'
 import VTaskForm from '@/components/molecules/VTaskForm.vue'
+import VModal from '@/components/organisms/VModal.vue'
 import { ref } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
 import type { Task, Status } from '@/types/tasks'
@@ -90,7 +91,9 @@ function addTask() {
 			</ul>
 		</section>
 	</main>
-
+	<Teleport to="body">
+		<VModal />
+	</Teleport>
 </template>
 
 <style scoped>
