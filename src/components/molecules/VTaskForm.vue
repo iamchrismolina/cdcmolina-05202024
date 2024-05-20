@@ -1,9 +1,11 @@
-<script setupt lang='ts'>
+<script setup lang='ts'>
+
+const emit = defineEmits(['submitTask'])
 
 </script>
 
 <template>
-<form @submit.prevent class='form'>
+<form @submit.prevent="emit('submitTask')" class='form'>
 	<slot></slot>
 </form>
 </template>
@@ -14,6 +16,9 @@
 	flex-direction: column;
 	border: 2px solid black;
 	width: fit-content;
+	padding: 1rem;
+	border-radius: 5px;
+	background: red;
 }
 
 </style>

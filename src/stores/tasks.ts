@@ -17,13 +17,14 @@ const useTasksStore = defineStore('tasks', () => {
 		tasks.value.push(newTask)
 	}
 
-	createTask({name: 'Vue 3', description: 'Study hard on Full Stack', status: 'DONE'})
+	const updateTask = (taskId: uuid, name?: string, description?: string, status: Status) => {
+		const task = tasks.value.find((t) => t.taskId === taskId)
+		task.name = name ?? task.name
+		task.description = description ?? task.description
+		task.status = status ?? task.status
+	}
 
-	return { tasks, createTask }
-
+	return { tasks, createTask, updateTask }
 })
-
-
-
 
 export { useTasksStore }
