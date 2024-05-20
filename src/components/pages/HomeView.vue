@@ -15,19 +15,26 @@ const status = ref<Status>('TODO')
 </script>
 
 <template>
+	<aside>
 	<VTaskForm>
 		<VText for='name' :tag="'label'" :content="'Name'" />
-		<VInput v-model='name' id='name' :inputType="'text'" maxlength='250' required />
+		<VInput v-model:input-value='name' id='name' :inputType="'text'" maxlength='250' required />
 		<VText for='description' :tag="'label'" :content="'Description'" />
 		<textarea v-model='description' id='description' rows='5' cols='45' maxlength='1000'></textarea>
 		<VText for='status' :tag="'label'" :content="'Status'" />
-		<select id='status'>
+		<select v-model='status' id='status'>
 			<option value='TODO' selected>TODO</option>
 			<option value='IN_PROGRESS'>IN PROGRESS</option>
 			<option value='DONE'>DONE</option>
 		</select>
 		<VButton :buttonType="'submit'" :buttonText="'Add Task'"/>
 	</VTaskForm>
+</aside>
+<main>
+	{{ name }}
+	{{ description }}
+	{{ status }}
+</main>
 </template>
 
 <style scoped>
