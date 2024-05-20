@@ -12,3 +12,5 @@ interface Task {
 	description?: string;
 	status: Status;
 }
+
+export type { Task, Status}
